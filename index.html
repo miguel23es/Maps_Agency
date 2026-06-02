@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAPS AGENCY</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+
+<body>
+    <div class="preloader" id="preloader">
+  <div class="loader-circle">
+    <span id="loadingPercent">0%</span>
+  </div>
+
+  <p>Loading Maps</p>
+</div>
+
+  <header class="navbar">
+    <div class="logo">MAPS AGENCY</div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="eyebrow">Creative Marketing Agency</p>
+      <h1>We build brands that feel elevated, intentional, and unforgettable.</h1>
+      <p class="hero-text">
+        Helping businesses grow through branding, social media, content creation,
+        and digital strategy.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Work With Us</a>
+        <a href="#services" class="btn secondary">Explore Services</a>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+        <h2>Where strategy meets style.</h2>
+
+        <p>
+            We help brands show up with confidence through beautiful visuals,
+            clear messaging, and a strong digital presence.
+        </p>
+
+        <div class="stats">
+            <div class="stat">
+            <h3 class="counter" data-target="250">0</h3>
+            <span>Projects Completed</span>
+            </div>
+
+            <div class="stat">
+            <h3 class="counter" data-target="98">0</h3>
+            <span>Client Satisfaction</span>
+            </div>
+
+            <div class="stat">
+            <h3 class="counter" data-target="5">0</h3>
+            <span>Years Experience</span>
+            </div>
+
+            <div class="stat">
+            <h3 class="counter" data-target="120">0</h3>
+            <span>Brands Helped</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+      <p class="eyebrow">What We Do</p>
+      <h2>Our Services</h2>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span>01</span>
+          <h3>Brand Strategy</h3>
+          <p>Positioning, messaging, and creative direction for your brand.</p>
+        </article>
+
+        <article class="service-card">
+          <span>02</span>
+          <h3>Social Media Management</h3>
+          <p>Content planning, posting, captions, and community engagement.</p>
+        </article>
+
+        <article class="service-card">
+          <span>03</span>
+          <h3>Content Creation</h3>
+          <p>Photo, video, reels, and branded visuals made for growth.</p>
+        </article>
+
+        <article class="service-card">
+          <span>04</span>
+          <h3>Web Design</h3>
+          <p>Modern, elegant websites designed to convert visitors into clients.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <p class="eyebrow">Featured Work</p>
+      <h2>Recent Projects</h2>
+
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="image-placeholder"></div>
+          <h3>Beauty Brand Launch</h3>
+          <p>Branding / Social Media</p>
+        </div>
+
+        <div class="work-card">
+          <div class="image-placeholder"></div>
+          <h3>Luxury Event Campaign</h3>
+          <p>Content / Strategy</p>
+        </div>
+
+        <div class="work-card">
+          <div class="image-placeholder"></div>
+          <h3>Fashion Boutique Refresh</h3>
+          <p>Web Design / Branding</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <h2>Ready to elevate your brand?</h2>
+      <p>Let’s create something beautiful together.</p>
+      <a href="mailto:hello@example.com" class="btn primary">Contact Us</a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Blanca Agency. All rights reserved.</p>
+    <div>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Email</a>
+    </div>
+  </footer>
+
+</body>
+<script>
+const counters = document.querySelectorAll(".counter");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      const counter = entry.target;
+      const target = Number(counter.dataset.target);
+
+      let count = 0;
+
+      const updateCounter = () => {
+
+        const increment = target / 100;
+
+        if (count < target) {
+          count += increment;
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + "+";
+        }
+      };
+
+      updateCounter();
+
+      observer.unobserve(counter);
+    }
+  });
+});
+
+    counters.forEach(counter => {
+    observer.observe(counter);
+    });
+
+    const preloader = document.getElementById("preloader");
+    const loadingPercent = document.getElementById("loadingPercent");
+
+    let percent = 0;
+
+    const loadingInterval = setInterval(() => {
+    percent++;
+
+    loadingPercent.textContent = percent + "%";
+
+    if (percent >= 100) {
+        clearInterval(loadingInterval);
+
+        setTimeout(() => {
+        preloader.classList.add("hide");
+        }, 300);
+    }
+}, 25);
+</script>
+</html>
