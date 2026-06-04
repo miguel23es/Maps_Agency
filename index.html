@@ -170,11 +170,32 @@
     <div class="project-display">
 
       <div class="project-video-card">
-        <video id="projectVideo" src="videos/project1.mp4" controls muted></video>
-      </div>
+
+    <video
+        id="projectVideo"
+        src="videos/project1.mp4"
+        autoplay
+        muted
+        loop
+        playsinline>
+    </video>
+
+    <div class="video-controls">
+
+        <button class="video-btn" id="playPauseBtn">
+            ⏸
+        </button>
+
+        <button class="video-btn" id="muteBtn">
+            🔇
+        </button>
+
+    </div>
+
+  </div>
 
       <div class="project-info">
-        <p class="project-number" id="projectNumber">01 / 03</p>
+        <p class="project-number" id="projectNumber">01 / 04</p>
         <h3 id="projectTitle">Beauty Brand Launch</h3>
         <p id="projectDescription">
           A full social media campaign focused on creating elegant visuals,
@@ -352,12 +373,34 @@ const projects = [
     title: "Boutique Brand Refresh",
     description:
       "A creative refresh designed to make the brand feel more modern, polished, and engaging across social platforms."
+  },
+  {
+    video: "videos/project4.mp4",
+    title: "Boutique Brand Refresh",
+    description:
+      "A creative refresh designed to make the brand feel more modern, polished, and engaging across social platforms."
   }
 ];
 
 let currentProject = 0;
 
 const projectVideo = document.getElementById("projectVideo");
+const workSection = document.querySelector(".work");
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      projectVideo.play();
+    } else {
+      projectVideo.pause();
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+videoObserver.observe(workSection);
+
 const projectTitle = document.getElementById("projectTitle");
 const projectDescription = document.getElementById("projectDescription");
 const projectNumber = document.getElementById("projectNumber");
@@ -374,6 +417,10 @@ function updateProject() {
   projectNumber.textContent = `${String(currentProject + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
 
   projectVideo.load();
+  projectVideo.play();
+  playPauseBtn.textContent = "⏸";
+  muteBtn.textContent =
+    projectVideo.muted ? "🔇" : "🔊";
 }
 
 nextProject.addEventListener("click", () => {
@@ -410,5 +457,36 @@ readMoreBtn.addEventListener("click", () => {
     }
 
 });
+
+const muteBtn = document.getElementById("muteBtn");
+const playPauseBtn = document.getElementById("playPauseBtn");
+
+muteBtn.addEventListener("click", () => {
+
+    projectVideo.muted = !projectVideo.muted;
+
+    muteBtn.textContent =
+        projectVideo.muted ? "🔇" : "🔊";
+
+});
+
+playPauseBtn.addEventListener("click", () => {
+
+    if (projectVideo.paused) {
+
+        projectVideo.play();
+        playPauseBtn.textContent = "⏸";
+
+    } else {
+
+        projectVideo.pause();
+        playPauseBtn.textContent = "▶";
+
+    }
+
+});
+
+
+
 </script>
 </html>
