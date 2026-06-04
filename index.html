@@ -25,9 +25,10 @@
     </div>
 
     <nav>
+      <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#work">Work</a>
+      <a href="#work">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -40,18 +41,62 @@
       <p>Miami based, open to go wherever the work goes.</p>
     </section>
 
-    <section class="intro" id="about">
-        <h2>Where strategy meets style.</h2>
+        <section class="work" id="work">
+  <p class="eyebrow">Featured Work</p>
+  <h2>Recent Projects</h2>
 
-        <p>
-            We help brands show up with confidence through beautiful visuals,
-            clear messaging, and a strong digital presence.
+  <div class="project-slider">
+
+    <button class="project-arrow up" id="prevProject">↑</button>
+
+    <div class="project-display">
+
+      <div class="project-video-card">
+
+    <video
+        id="projectVideo"
+        src="videos/project1.mp4"
+        autoplay
+        muted
+        loop
+        playsinline>
+    </video>
+
+    <div class="video-controls">
+
+        <button class="video-btn" id="playPauseBtn">
+            ⏸
+        </button>
+
+        <button class="video-btn" id="muteBtn">
+            🔇
+        </button>
+
+    </div>
+
+  </div>
+
+      <div class="project-info">
+        <p class="project-number" id="projectNumber">01 / 04</p>
+        <h3 id="projectTitle">A Day That Felt Like Forever</h3>
+        <p id="projectDescription">
+          Full wedding coverage in collaboration with Social Brides Collective — the flow, the feeling, and the moments that made the day theirs.
         </p>
+      </div>
 
+    </div>
+
+    <button class="project-arrow down" id="nextProject">↓</button>
+
+  </div>
+</section>
+
+    <section class="intro" id="about">
+        <h2>AT A GLANCE</h2>
         <div class="stats">
             <div class="stat">
             <h3 class="counter" data-target="54320000">0</h3>
-            <span>Organic Views created</span>
+            <span>Organic views generated through branded and event content.</span>
             </div>
         </div>
     </section>
@@ -159,56 +204,7 @@
   </div>
 </section>
 
-    <section class="work" id="work">
-  <p class="eyebrow">Featured Work</p>
-  <h2>Recent Projects</h2>
 
-  <div class="project-slider">
-
-    <button class="project-arrow up" id="prevProject">↑</button>
-
-    <div class="project-display">
-
-      <div class="project-video-card">
-
-    <video
-        id="projectVideo"
-        src="videos/project1.mp4"
-        autoplay
-        muted
-        loop
-        playsinline>
-    </video>
-
-    <div class="video-controls">
-
-        <button class="video-btn" id="playPauseBtn">
-            ⏸
-        </button>
-
-        <button class="video-btn" id="muteBtn">
-            🔇
-        </button>
-
-    </div>
-
-  </div>
-
-      <div class="project-info">
-        <p class="project-number" id="projectNumber">01 / 04</p>
-        <h3 id="projectTitle">Beauty Brand Launch</h3>
-        <p id="projectDescription">
-          A full social media campaign focused on creating elegant visuals,
-          stronger brand presence, and more consistent content.
-        </p>
-      </div>
-
-    </div>
-
-    <button class="project-arrow down" id="nextProject">↓</button>
-
-  </div>
-</section>
 
     <section class="contact-section" id="contact">
 
@@ -274,6 +270,30 @@
 
 </body>
 <script>
+history.scrollRestoration = "manual";
+document.querySelectorAll('nav a').forEach(link => {
+
+    link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const target = document.querySelector(
+            link.getAttribute('href')
+        );
+
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.pushState(
+            "",
+            document.title,
+            window.location.pathname
+        );
+
+    });
+
+});
 const counters = document.querySelectorAll(".counter");
 
 const observer = new IntersectionObserver((entries) => {
@@ -358,27 +378,27 @@ closeButtons.forEach(button => {
 const projects = [
   {
     video: "videos/project1.mp4",
-    title: "Beauty Brand Launch",
+    title: "A Day That Felt Like Forever",
     description:
-      "A full social media campaign focused on creating elegant visuals, stronger brand presence, and more consistent content."
+      "Full wedding coverage in collaboration with Social Brides Collective — the flow, the feeling, and the moments that made the day theirs."
   },
   {
     video: "videos/project2.mp4",
-    title: "Restaurant Content Shoot",
+    title: "The Energy in Motion",
     description:
-      "A vertical video package created to highlight food, ambiance, customer experience, and brand personality."
+      "Event coverage for WIN Fitness Wear — curated shots that captured the movement, the energy, and the full story of the day."
   },
   {
     video: "videos/project3.mp4",
-    title: "Boutique Brand Refresh",
+    title: "A Love Story in Stone",
     description:
-      "A creative refresh designed to make the brand feel more modern, polished, and engaging across social platforms."
+      "Full wedding coverage in collaboration with Social Brides Collective — curated shots through every corner of the Ancient Spanish Monastery. "
   },
   {
     video: "videos/project4.mp4",
-    title: "Boutique Brand Refresh",
+    title: "Soccer, Amplified",
     description:
-      "A creative refresh designed to make the brand feel more modern, polished, and engaging across social platforms."
+      "Commercial coverage for Telemundo in collaboration with the USWNT — a campaign shoot built around the idea that soccer is better in Spanish, recapped into social-ready content."
   }
 ];
 
@@ -424,20 +444,20 @@ function updateProject() {
 }
 
 nextProject.addEventListener("click", () => {
-  currentProject++;
+  currentProject--;
 
-  if (currentProject >= projects.length) {
-    currentProject = 0;
+  if (currentProject < 0) {
+    currentProject = projects.length - 1;
   }
 
   updateProject();
 });
 
 prevProject.addEventListener("click", () => {
-  currentProject--;
+  currentProject++;
 
-  if (currentProject < 0) {
-    currentProject = projects.length - 1;
+  if (currentProject >= projects.length) {
+    currentProject = 0;
   }
 
   updateProject();
