@@ -715,26 +715,45 @@ a {
 ======================= */
 
 .footer {
-  padding: 36px 8%;
   background: var(--black);
   color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  padding: 30px 8%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
 }
 
-.footer div {
-  display: flex;
-  gap: 24px;
+.footer-left {
+  justify-self: start;
 }
 
-.footer a {
-  color: rgba(255, 255, 255, 0.7);
-  transition: 0.3s ease;
+.footer-right {
+  justify-self: end;
+  text-align: right;
 }
 
-.footer a:hover {
+.footer-left h3 {
+  font-size: 2rem;
+  font-weight: 800;
   color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  color: rgba(255,255,255,.7);
+}
+
+.footer-right h4 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-right p {
+  color: rgba(255,255,255,.7);
+  margin-bottom: 5px;
 }
 
 .mute-btn {
@@ -910,5 +929,232 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+  }
+}
+
+
+.personal-hero {
+  min-height: 85vh;
+  padding: 140px 8% 80px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 70px;
+  align-items: center;
+}
+
+.personal-copy h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.personal-copy p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.personal-image img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.journey-section {
+  padding: 100px 8%;
+  background: var(--light-bg);
+  text-align: center;
+}
+
+.journey-section h2 {
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.journey-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.journey-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 36px;
+  text-align: left;
+}
+
+.journey-card span {
+  color: var(--primary-dark);
+  font-weight: 800;
+}
+
+.journey-card h3 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin: 24px 0 14px;
+}
+
+.journey-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.case-study {
+  padding: 40px 8%;
+  display: grid;
+  grid-template-columns: 1.1fr 420px;
+  gap: 40px;
+  align-items: center;
+  background: transparent;
+}
+
+.case-study.reverse {
+  grid-template-columns: 420px 1.1fr;
+}
+
+.case-study.reverse .case-text {
+  grid-column: 2;
+}
+
+.case-study.reverse .case-image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.case-text h2 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.case-text h3 {
+  font-size: 1.5rem;
+  margin: 30px 0 10px;
+}
+
+.case-text p,
+.case-text li {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.case-text ul {
+  padding-left: 20px;
+}
+
+.case-image img {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: none;
+  background: transparent;
+}
+
+.production-section {
+  padding: 110px 8%;
+  background: var(--black);
+  color: white;
+}
+
+.production-section h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.production-section p {
+  max-width: 850px;
+  color: rgba(255,255,255,.75);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.production-tags {
+  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.production-tags span {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  padding: 12px 20px;
+  color: white;
+  background: rgba(255,255,255,.04);
+}
+
+.award-section {
+  padding: 110px 8%;
+  background: var(--light-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.award-image img {
+  width: 100%;
+  border-radius: 28px;
+  border: 8px solid transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(
+      135deg,
+      #8B6914,
+      #D4AF37,
+      #FFF1A8,
+      #C99700,
+      #7A5A00
+    ) border-box;
+  box-sizing: border-box;
+}
+
+.award-copy h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.award-copy p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .personal-hero,
+  .case-study,
+  .case-study.reverse,
+  .award-section {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study.reverse .case-text,
+  .case-study.reverse .case-image {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-image img,
+  .case-image img {
+    background: transparent;
   }
 }
