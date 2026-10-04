@@ -1165,7 +1165,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevButton = document.querySelector('.experience-prev');
     const nextButton = document.querySelector('.experience-next');
 
+    const slider = document.querySelector('.experience-slider');
+
     let currentSlide = 0;
+
+    // Swipe variables
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    const swipeThreshold = 50;
 
 
     function showSlide(index) {
@@ -1196,19 +1207,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // NEXT
-    nextButton.addEventListener('click', () => {
-        showSlide(currentSlide + 1);
-    });
+    /* =========================
+       DESKTOP ARROWS
+    ========================= */
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+    }
 
 
-    // PREVIOUS
-    prevButton.addEventListener('click', () => {
-        showSlide(currentSlide - 1);
-    });
+    /* =========================
+       DOT NAVIGATION
+    ========================= */
 
-
-    // DOTS
     dots.forEach((dot, index) => {
 
         dot.addEventListener('click', () => {
@@ -1216,6 +1235,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+
+
+    /* =========================
+       MOBILE SWIPE
+    ========================= */
+
+    if (slider) {
+
+        slider.addEventListener(
+            'touchstart',
+            (event) => {
+
+                touchStartX =
+                    event.changedTouches[0].clientX;
+
+                touchStartY =
+                    event.changedTouches[0].clientY;
+
+            },
+            { passive: true }
+        );
+
+
+        slider.addEventListener(
+            'touchend',
+            (event) => {
+
+                touchEndX =
+                    event.changedTouches[0].clientX;
+
+                touchEndY =
+                    event.changedTouches[0].clientY;
+
+
+                const distanceX =
+                    touchEndX - touchStartX;
+
+                const distanceY =
+                    touchEndY - touchStartY;
+
+
+                /*
+                    Only trigger slide change when
+                    the gesture was primarily horizontal.
+
+                    This prevents normal vertical scrolling
+                    from accidentally changing slides.
+                */
+
+                if (
+                    Math.abs(distanceX) >
+                    Math.abs(distanceY) &&
+                    Math.abs(distanceX) > swipeThreshold
+                ) {
+
+                    // Swipe LEFT
+                    // Go to next experience
+
+                    if (distanceX < 0) {
+                        showSlide(currentSlide + 1);
+                    }
+
+
+                    // Swipe RIGHT
+                    // Go to previous experience
+
+                    else {
+                        showSlide(currentSlide - 1);
+                    }
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    }
 
 });
 

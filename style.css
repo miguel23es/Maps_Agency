@@ -2866,12 +2866,25 @@ a {
        EXPERIENCE SLIDER - MOBILE
     ========================================= */
 
+/* Hide desktop arrows */
     .experience-arrow {
         display: none !important;
     }
 
+
+    /* Allow vertical page scrolling
+       while supporting horizontal swipe */
+
+    .experience-slider {
+        touch-action: pan-y;
+    }
+
+
+    /* Clean pagination */
+
     .experience-dots {
-        margin: 24px auto 30px;
+        margin: 25px auto 32px;
+
         padding: 0;
 
         display: flex;
@@ -2884,6 +2897,10 @@ a {
     .experience-dot {
         width: 7px;
         height: 7px;
+
+        border-radius: 50%;
+
+        background: #ccc;
     }
 
     .experience-dot.active {
@@ -2891,6 +2908,8 @@ a {
         height: 7px;
 
         border-radius: 10px;
+
+        background: #111;
     }
 
     .experience-slider {
