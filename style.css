@@ -1507,6 +1507,32 @@ a {
     }
 }
 
+
+.form-message {
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    min-height: 24px;
+}
+
+.form-message.success {
+    color: #4f8f7b;
+}
+
+.form-message.error {
+    color: #b94a48;
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 /* =======================
    FOOTER
 ======================= */
