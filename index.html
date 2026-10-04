@@ -11,7 +11,7 @@
 
 
 <body>
-    <div class="preloader" id="preloader">
+   <div class="preloader" id="preloader">
   <div class="loader-circle">
     <span id="loadingPercent">0%</span>
   </div>
@@ -19,20 +19,82 @@
   <p>Loading Maps</p>
 </div>
 
-  <header class="navbar">
-    <a href="#home">
-   <div class="logo">
-    The <span>MAPS</span> Agency
-    </div></a>
 
-    <nav>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
+<header class="navbar">
+
+  <a href="#home" class="logo">
+    The <span>MAPS</span> Agency
+  </a>
+
+  <!-- DESKTOP NAVIGATION -->
+  <nav class="desktop-nav">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- MOBILE HAMBURGER -->
+  <button
+    class="mobile-menu-btn"
+    id="mobileMenuBtn"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+
+<!-- MOBILE FULL SCREEN MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <nav class="mobile-menu-nav">
+
+    <a href="#work" class="mobile-menu-link">
+      
+      Work
+    </a>
+
+    <a href="#about" class="mobile-menu-link">
+      
+      About
+    </a>
+
+    <a href="#services" class="mobile-menu-link">
+      
+      Services
+    </a>
+
+    <a href="#experience" class="mobile-menu-link">
+      
+      Experience
+    </a>
+
+    <a href="#contact" class="mobile-menu-link">
+      
+      Contact
+    </a>
+
+  </nav>
+
+
+  <div class="mobile-menu-bottom">
+    <p>
+      Creative experiences built with intention.
+    </p>
+
+    <span>
+      THE MAPS AGENCY
+    </span>
+  </div>
+
+</div>
 
   <main>
 
@@ -241,7 +303,9 @@
         <h2>AT A GLANCE</h2>
         <div class="stats">
             <div class="stat">
-            <h3 class="counter" data-target="54320000">0</h3>
+            <h3 class="counter" data-target="54320000">
+                <span class="counter-number">0</span><span class="counter-suffix"> M+</span>
+            </h3>
             <span>Organic views generated through branded and event content.</span>
             </div>
         </div>
@@ -1154,6 +1218,166 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Mobile Menu
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const mobileMenuLinks =
+        document.querySelectorAll(".mobile-menu-link");
+
+
+    // =========================
+    // OPEN / CLOSE MENU
+    // =========================
+
+    mobileMenuBtn.addEventListener("click", () => {
+
+        const menuIsOpen =
+            mobileMenu.classList.toggle("active");
+
+        mobileMenuBtn.classList.toggle(
+            "active",
+            menuIsOpen
+        );
+
+        document.body.classList.toggle(
+            "menu-open",
+            menuIsOpen
+        );
+
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            menuIsOpen
+        );
+
+    });
+
+
+
+    // =========================
+    // CLICK MENU LINK
+    // =========================
+
+    mobileMenuLinks.forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            event.preventDefault();
+
+
+            const targetSelector =
+                link.getAttribute("href");
+
+            const target =
+                document.querySelector(targetSelector);
+
+
+            // Close menu
+
+            mobileMenu.classList.remove("active");
+
+            mobileMenuBtn.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            // Allow menu closing animation
+            // then smoothly move to section
+
+            setTimeout(() => {
+
+                if (target) {
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            }, 250);
+
+        });
+
+    });
+
+    let currentExperienceSlide = 0;
+
+    const experienceSlider =
+    document.querySelector(".experience-slider");
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const swipeThreshold = 50;
+
+
+experienceSlider.addEventListener(
+    "touchstart",
+    (event) => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+);
+
+
+experienceSlider.addEventListener(
+    "touchend",
+    (event) => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleExperienceSwipe();
+
+    },
+    { passive: true }
+);
+
+
+function handleExperienceSwipe() {
+
+    const swipeDistance =
+        touchEndX - touchStartX;
+
+
+    // SWIPE LEFT
+    // Next experience
+
+    if (swipeDistance < -swipeThreshold) {
+
+        showExperienceSlide(
+            currentExperienceSlide + 1
+        );
+
+    }
+
+
+    // SWIPE RIGHT
+    // Previous experience
+
+    else if (swipeDistance > swipeThreshold) {
+
+        showExperienceSlide(
+            currentExperienceSlide - 1
+        );
+
+    }
+
+}
 
 </script>
 </html>

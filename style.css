@@ -2059,6 +2059,11 @@ a {
    Phones / small tablets
 ========================================================== */
 
+.mobile-menu-btn,
+.mobile-menu {
+    display: none;
+}
+
 @media (max-width: 768px) {
 
     /* Prevent accidental horizontal scrolling */
@@ -2071,34 +2076,353 @@ a {
 
 
     /* =========================
-       NAVBAR
+       TOP NAVBAR
     ========================= */
 
     .navbar {
-        padding: 14px 20px;
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .navbar nav {
         width: 100%;
+
+        padding: 20px 22px;
+
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px 16px;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 0;
+
+        background: rgba(255, 255, 255, 0.92);
+
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        border-bottom:
+            1px solid rgba(0, 0, 0, 0.08);
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        z-index: 5000;
     }
 
-    .navbar nav a {
+
+    /* Logo stays on left */
+
+    .navbar .logo {
+        position: relative;
+
+        z-index: 5002;
+
+        font-size: 0.9rem;
+        font-weight: 400;
+
+        letter-spacing: 1.7px;
+
+        white-space: nowrap;
+    }
+
+    .navbar .logo span {
+        font-weight: 700;
+    }
+
+
+    /* Hide desktop links */
+
+    .desktop-nav {
+        display: none !important;
+    }
+
+
+    /* =========================
+       HAMBURGER
+    ========================= */
+
+    .mobile-menu-btn {
+        width: 34px;
+        height: 26px;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        cursor: pointer;
+
+        position: relative;
+
+        z-index: 5002;
+    }
+
+
+    .mobile-menu-btn span {
+        width: 100%;
+        height: 1.5px;
+
+        display: block;
+
+        background: #111;
+
+        transform-origin: center;
+
+        transition:
+            transform 0.35s cubic-bezier(.2,.8,.2,1),
+            opacity 0.25s ease,
+            width 0.3s ease;
+    }
+
+
+    /*
+       Slight asymmetry makes the
+       hamburger look more editorial.
+    */
+
+    .mobile-menu-btn span:nth-child(2) {
+        width: 75%;
+
+        align-self: flex-end;
+    }
+
+
+    /* =========================
+       HAMBURGER → X
+    ========================= */
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform:
+            translateY(12px)
+            rotate(45deg);
+    }
+
+
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+
+        width: 0;
+    }
+
+
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform:
+            translateY(-12px)
+            rotate(-45deg);
+    }
+
+
+    /* =========================
+       FULL SCREEN MENU
+    ========================= */
+
+    .mobile-menu {
+        position: fixed;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100dvh;
+
+        padding:
+            130px
+            28px
+            40px;
+
+        background: #f8f8f8;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        z-index: 4999;
+
+
+        /* Hidden state */
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-25px);
+
+        transition:
+            opacity 0.4s ease,
+            visibility 0.4s ease,
+            transform 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    /* Open */
+
+    .mobile-menu.active {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================
+       MENU ITEMS
+    ========================= */
+
+    .mobile-menu-nav {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    .mobile-menu-link {
+        width: 100%;
+
+        padding: 18px 0;
+
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 17px;
+
+        border-bottom:
+            1px solid rgba(0, 0, 0, 0.12);
+
+        color: #111;
+
+        font-size: clamp(
+            2.8rem,
+            13vw,
+            4.5rem
+        );
+
+        font-weight: 300;
+
+        letter-spacing: -3px;
+
+        line-height: 1;
+
+        text-decoration: none;
+
+        transform: translateY(20px);
+
+        opacity: 0;
+
+        transition:
+            opacity 0.45s ease,
+            transform 0.45s ease,
+            color 0.25s ease;
+    }
+
+
+    /* Small number */
+
+    .mobile-menu-link span {
+        margin-top: 8px;
+
+        color: #97d0bd;
+
+        font-size: 0.65rem;
+
+        font-weight: 600;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* Animate items when menu opens */
+
+    .mobile-menu.active
+    .mobile-menu-link {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    .mobile-menu.active
+    .mobile-menu-link:nth-child(1) {
+        transition-delay: 0.08s;
+    }
+
+    .mobile-menu.active
+    .mobile-menu-link:nth-child(2) {
+        transition-delay: 0.13s;
+    }
+
+    .mobile-menu.active
+    .mobile-menu-link:nth-child(3) {
+        transition-delay: 0.18s;
+    }
+
+    .mobile-menu.active
+    .mobile-menu-link:nth-child(4) {
+        transition-delay: 0.23s;
+    }
+
+
+    .mobile-menu-link:active {
+        color: #7fbba7;
+    }
+
+
+    /* =========================
+       BOTTOM TEXT
+    ========================= */
+
+    .mobile-menu-bottom {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: flex-end;
+
+        gap: 20px;
+
+        color: rgba(0, 0, 0, 0.45);
+    }
+
+
+    .mobile-menu-bottom p {
+        max-width: 170px;
+
+        margin: 0;
+
         font-size: 0.72rem;
-        letter-spacing: 0.8px;
+
+        line-height: 1.5;
     }
 
+
+    .mobile-menu-bottom span {
+        font-size: 0.62rem;
+
+        letter-spacing: 1.8px;
+
+        white-space: nowrap;
+    }
+
+
+    /* Prevent background scrolling
+       while menu is open */
+
+    body.menu-open {
+        overflow: hidden;
+    }
 
     /* =========================
        HERO
@@ -2214,11 +2538,6 @@ a {
     /* =========================
        INTRO
     ========================= */
-
-    .intro {
-        padding: 20px 20px 55px;
-    }
-
     .intro h2 {
         margin-top: 25px;
 
@@ -2542,23 +2861,515 @@ a {
     }
 
 
+
+    /* =========================================
+       EXPERIENCE SLIDER - MOBILE
+    ========================================= */
+
+    .experience-arrow {
+        display: none !important;
+    }
+
+    .experience-dots {
+        margin: 24px auto 30px;
+        padding: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 7px;
+    }
+
+    .experience-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .experience-dot.active {
+        width: 24px;
+        height: 7px;
+
+        border-radius: 10px;
+    }
+
+    .experience-slider {
+        touch-action: pan-y;
+    }
+
+    .experience-slider-section {
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .experience-slider {
+        position: relative;
+        width: 100%;
+    }
+
+    .experience-slides {
+        width: 100%;
+    }
+
+
+    /* =========================
+       EACH SLIDE
+    ========================= */
+
+    .experience-slide {
+        width: 100%;
+    }
+
+
+    /* =========================================
+       FIRST SLIDE - CAREER JOURNEY
+    ========================================= */
+
+    .experience-slide .journey-section {
+        padding: 60px 20px 25px;
+    }
+
+    .experience-slide .journey-section .eyebrow {
+        margin-bottom: 12px;
+
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+    }
+
+    .experience-slide .journey-section h2 {
+        max-width: 320px;
+
+        margin: 0 auto 32px;
+
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+
+        line-height: 1;
+
+        letter-spacing: -2px;
+    }
+
+
+    .experience-slide .journey-grid {
+        display: flex;
+        flex-direction: column;
+
+        gap: 14px;
+
+        width: 100%;
+
+        max-width: 420px;
+
+        margin: 0 auto;
+    }
+
+
+    .experience-slide .journey-card {
+        padding: 22px 20px;
+
+        border-radius: 18px;
+
+        text-align: left;
+
+        display: grid;
+
+        grid-template-columns: 35px 1fr;
+
+        column-gap: 10px;
+
+        align-items: start;
+    }
+
+
+    .experience-slide .journey-card > span {
+        grid-row: 1 / 3;
+
+        margin-top: 3px;
+
+        font-size: 0.7rem;
+    }
+
+
+    .experience-slide .journey-card h3 {
+        margin: 0 0 7px;
+
+        font-size: 1.25rem;
+
+        line-height: 1.2;
+    }
+
+
+    .experience-slide .journey-card p {
+        margin: 0;
+
+        font-size: 0.86rem;
+
+        line-height: 1.55;
+    }
+
+
+
+    /* =========================================
+       FEATURED EXPERIENCE SLIDES
+    ========================================= */
+
+    .experience-slide .case-study,
+    .experience-slide .case-study.reverse {
+        width: 100%;
+
+        padding: 60px 20px 25px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 28px;
+
+        text-align: left;
+    }
+
+
+    /*
+       Always show text first, image second
+       on mobile.
+    */
+
+    .experience-slide .case-text {
+        order: 1;
+
+        width: 100%;
+    }
+
+    .experience-slide .case-image {
+        order: 2;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+
+    .experience-slide .case-text .eyebrow {
+        margin-bottom: 12px;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 2px;
+    }
+
+
+    .experience-slide .case-text h2 {
+        margin-bottom: 20px;
+
+        font-size: clamp(2.5rem, 12vw, 3.6rem);
+
+        line-height: 0.95;
+
+        letter-spacing: -2px;
+    }
+
+
+    /* Industry / Location / Platforms */
+
+    .experience-slide .case-text > p:nth-of-type(2),
+    .experience-slide .case-text > p:nth-of-type(3),
+    .experience-slide .case-text > p:nth-of-type(4) {
+        margin-bottom: 5px;
+
+        font-size: 0.8rem;
+
+        line-height: 1.45;
+
+        color: #666;
+    }
+
+
+    .experience-slide .case-text h3 {
+        margin:
+            24px
+            0
+            8px;
+
+        font-size: 0.78rem;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1.7px;
+
+        color: #97d0bd;
+    }
+
+
+    .experience-slide .case-text p,
+    .experience-slide .case-text li {
+        font-size: 0.9rem;
+
+        line-height: 1.6;
+    }
+
+
+    .experience-slide .case-text ul {
+        margin-top: 6px;
+
+        padding-left: 18px;
+    }
+
+
+    .experience-slide .case-text li {
+        margin-bottom: 8px;
+    }
+
+
+    /* IMAGE */
+
+    .experience-slide .case-image img {
+        width: 100%;
+
+        max-width: 330px;
+
+        height: auto;
+
+        max-height: 340px;
+
+        object-fit: contain;
+
+        border-radius: 14px;
+    }
+
+
+
+    /* =========================================
+       PRODUCTION SLIDE
+    ========================================= */
+
+    .experience-slide .production-section {
+        min-height: 430px;
+
+        padding:
+            75px
+            22px
+            45px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .experience-slide .production-section .eyebrow {
+        margin-bottom: 14px;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 2px;
+    }
+
+
+    .experience-slide .production-section h2 {
+        max-width: 340px;
+
+        margin:
+            0
+            auto
+            20px;
+
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+
+        line-height: 1;
+
+        letter-spacing: -2px;
+    }
+
+
+    .experience-slide .production-section p {
+        max-width: 330px;
+
+        margin: 0 auto;
+
+        font-size: 0.9rem;
+
+        line-height: 1.65;
+    }
+
+
+
+    /* =========================================
+       AWARD SLIDE
+    ========================================= */
+
+    .experience-slide .award-section {
+        min-height: auto;
+
+        padding:
+            60px
+            20px
+            30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+
+    .experience-slide .award-image {
+        order: 2;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+
+    .experience-slide .award-copy {
+        order: 1;
+    }
+
+
+    .experience-slide .award-image img {
+        width: min(80%, 310px);
+
+        border-radius: 18px;
+    }
+
+
+    .experience-slide .award-copy .eyebrow {
+        margin-bottom: 12px;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 2px;
+    }
+
+
+    .experience-slide .award-copy h2 {
+        margin-bottom: 15px;
+
+        font-size: clamp(2.7rem, 12vw, 3.8rem);
+
+        line-height: 1;
+    }
+
+
+    .experience-slide .award-copy p {
+        max-width: 340px;
+
+        margin: 0 auto;
+
+        font-size: 0.9rem;
+
+        line-height: 1.6;
+    }
+
+
+
+    /* =========================================
+       SLIDER ARROWS
+    ========================================= */
+
+    /*
+       Instead of arrows floating halfway
+       over the slide content, place them
+       near the bottom.
+    */
+
+    .experience-arrow {
+        top: auto;
+
+        bottom: 3px;
+
+        width: 40px;
+        height: 40px;
+
+        transform: none;
+
+        border: 1px solid rgba(0,0,0,.12);
+
+        background: rgba(255,255,255,.95);
+
+        font-size: 18px;
+
+        box-shadow:
+            0 4px 15px rgba(0,0,0,.06);
+
+        z-index: 30;
+    }
+
+
+    .experience-arrow:hover {
+        transform: none;
+    }
+
+
+    .experience-prev {
+        left: 20px;
+    }
+
+    .experience-next {
+        right: 20px;
+    }
+
+
+
+    /* =========================================
+       DOT NAVIGATION
+    ========================================= */
+
+    .experience-dots {
+        position: relative;
+
+        margin:
+            20px
+            auto
+            25px;
+
+        gap: 6px;
+
+        padding: 0 70px;
+
+        min-height: 42px;
+    }
+
+
+    .experience-dot {
+        width: 6px;
+        height: 6px;
+
+        flex-shrink: 0;
+
+        background: #ccc;
+    }
+
+
+    .experience-dot.active {
+        width: 20px;
+        height: 6px;
+
+        border-radius: 10px;
+
+        background: #111;
+    }
+
+
     /* =========================
        STATS
     ========================= */
 
-    .stats {
-        flex-direction: column;
-
-        gap: 25px;
-    }
-
     .stat h3 {
-        font-size: clamp(4rem, 20vw, 6rem);
+        font-size: clamp(1.0rem, 10vw, 3.5rem);
     }
 
-    .stat span {
-        font-size: 0.85rem;
-    }
 
 
     /* =========================
