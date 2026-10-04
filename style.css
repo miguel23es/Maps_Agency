@@ -1247,6 +1247,9 @@ a {
 /* =======================
    CTA
 ======================= */
+#contact {
+    scroll-margin-top: 90px;
+}
 
 .contact-section {
     padding: 10px 3%;
