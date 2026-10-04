@@ -392,7 +392,7 @@ a {
     background: none;
     border: none;
 
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 3vw, 1.5rem);
     font-weight: 200;
 
     text-align: left;
@@ -422,37 +422,57 @@ a {
 /* DESCRIPTION */
 
 .service-description {
-    display: grid;
-    grid-template-rows: 0fr;
-
+    max-height: 0;
     opacity: 0;
-
-    transition:
-        grid-template-rows 0.4s ease,
-        opacity 0.25s ease;
-}
-
-.service-description > p {
     overflow: hidden;
 
-    max-width: 650px;
+    transition:
+        max-height 0.5s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.2s ease;
+}
 
-    margin: 0;
+.service-description-inner {
 
-    font-size: 1rem;
-    line-height: 1.7;
+    max-width: 760px;
 
-    opacity: 0.75;
+    transform: translateY(-8px);
+
+    transition:
+        transform 0.4s cubic-bezier(.22, 1, .36, 1);
 }
 
 .service-item.active .service-description {
-    grid-template-rows: 1fr;
-
+    max-height: 350px;
     opacity: 1;
 }
 
-.service-item.active .service-description > p {
-    padding-bottom: 30px;
+.service-item.active .service-description-inner {
+    transform: translateY(0);
+}
+
+.service-description p {
+    margin: 0;
+    padding-top: 6px;
+
+    font-size: 1.05rem;
+    line-height: 1.75;
+
+    color: #555;
+    font-weight: 400;
+}
+
+.service-tag {
+    display: inline-block;
+
+    margin-top: 18px;
+    margin-bottom: 30px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #97d0bd;
 }
 
 /* =========================================
@@ -3817,9 +3837,6 @@ mux-player#projectVideo {
         width: 68vw;
     }
 
-    .service-polaroid {
-        width: 88%;
-    }
 }
 
 
@@ -3852,6 +3869,7 @@ mux-player#projectVideo {
     .navbar nav a {
         font-size: 0.95rem;
     }
+
 
 
     /* =========================
@@ -3921,56 +3939,6 @@ mux-player#projectVideo {
 
         font-size: 1.2rem;
     }
-
-
-    /* =========================
-       SERVICES
-    ========================= */
-
-    .services {
-        padding:
-            140px
-            max(6vw, calc((100vw - 1700px) / 2))
-            160px;
-    }
-
-    .services-heading,
-    .services-grid {
-        max-width: 1650px;
-    }
-
-    .services-heading h2 {
-       font-size: clamp(3.5rem, 4vw, 4rem);
-    }
-
-    .services-grid {
-        gap: 30px;
-    }
-
-    .service-card {
-        min-height: 520px;
-
-        padding: 42px 34px;
-    }
-
-    .service-polaroid {
-        width: 82%;
-    }
-
-    .service-polaroid img {
-        height: 215px;
-    }
-
-    .service-content h3 {
-        font-size: 28px;
-    }
-
-    .service-content p {
-        max-width: 310px;
-
-        font-size: 15px;
-    }
-
 
     /* =========================
        FEATURED WORK / CANVAS
