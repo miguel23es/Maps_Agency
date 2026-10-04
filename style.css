@@ -2048,22 +2048,1480 @@ a {
 }
 
 
-/* MOBILE */
+/* ==========================================================
+   RESPONSIVE OVERRIDES
+   Default CSS above = regular desktop
+========================================================== */
+
+
+/* ==========================================================
+   MOBILE VERSION
+   Phones / small tablets
+========================================================== */
+
 @media (max-width: 768px) {
 
-    .production-logo {
-        width: 130px;
-        height: 90px;
+    /* Prevent accidental horizontal scrolling */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-        margin: 0 20px;
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .navbar nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .navbar nav a {
+        font-size: 0.72rem;
+        letter-spacing: 0.8px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            150px
+            20px
+            65px;
+
+        justify-content: flex-start;
+    }
+
+    .eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 2.2px;
+        margin-bottom: 15px;
+    }
+
+    .hero h1 {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
+
+        line-height: 0.95;
+        letter-spacing: -2px;
+
+        margin-bottom: 22px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+
+        font-size: 0.95rem;
+        line-height: 1.7;
+
+        margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn {
+        padding: 14px 20px;
+        font-size: 0.82rem;
+    }
+
+
+    /* =========================
+       HERO LOGO SLIDER
+    ========================= */
+
+    .hero-trusted {
+        width: 100%;
+        margin-top: 35px;
+    }
+
+    .hero-trusted-label {
+        font-size: 10px;
+        letter-spacing: 1.8px;
+
+        margin-bottom: 10px;
+    }
+
+    .hero .production-logo-slider {
+        padding: 7px 0;
+    }
+
+    .hero .production-logo-slider::before,
+    .hero .production-logo-slider::after {
+        width: 35px;
+    }
+
+    .hero .production-logo {
+        width: 105px;
+        height: 45px;
+
+        margin: 0 14px;
+    }
+
+    .hero .production-logo img {
+        max-height: 29px;
+    }
+
+    .hero .production-logo img.logo-large {
+        max-height: 34px;
+    }
+
+    .hero .production-logo img.logo-medium-large {
+        max-height: 32px;
+    }
+
+    .hero .production-logo img.logo-extra-large {
+        max-height: 38px;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+        padding: 20px 20px 55px;
+    }
+
+    .intro h2 {
+        margin-top: 25px;
+
+        font-size: clamp(2rem, 10vw, 3.4rem);
+        line-height: 1.05;
+    }
+
+    .intro p {
+        max-width: 100%;
+
+        font-size: 0.95rem;
+        line-height: 1.7;
+
+        margin-top: 20px;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+        padding: 70px 20px 80px;
+    }
+
+    .services-heading {
+        margin-bottom: 45px;
+    }
+
+    .services-heading .eyebrow {
+        margin-bottom: 22px;
+
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .services-heading h2 {
+        font-size: clamp(2.8rem, 13vw, 4.2rem);
+
+        line-height: 0.95;
+
+        letter-spacing: -2px;
+    }
+
+    /* IMPORTANT:
+       your actual class is .services-grid,
+       not .service-grid
+    */
+    .services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .service-card {
+        min-height: auto;
+
+        padding: 28px 22px 30px;
+    }
+
+    .service-polaroid {
+        width: min(80%, 300px);
+
+        margin:
+            10px
+            auto
+            35px;
+    }
+
+    .service-polaroid img {
+        height: 180px;
+    }
+
+    .service-content h3 {
+        font-size: 22px;
+    }
+
+    /*
+       Mobile has no reliable hover,
+       so descriptions should always be visible.
+    */
+
+    .service-content p {
+        max-width: 100%;
+
+        margin-top: 14px;
+
+        opacity: 1;
+
+        transform: none;
+
+        font-size: 14px;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+
+
+    /* =========================
+       FEATURED WORK / CANVAS
+    ========================= */
+
+    .work {
+        min-height: auto;
+
+        padding:
+            65px
+            16px
+            75px;
+    }
+
+    .canvas-heading {
+        margin-bottom: 40px;
+    }
+
+    .canvas-heading h2 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+
+        letter-spacing: -2px;
+
+        line-height: 0.95;
+    }
+
+    .canvas-category {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .canvas-slider {
+        max-width: 100%;
+    }
+
+    .canvas-main {
+        width: 100%;
+    }
+
+    .canvas-video-card {
+        width: min(78vw, 310px);
+
+        height: auto;
+
+        aspect-ratio: 9 / 16;
+
+        border-radius: 22px;
+    }
+
+    .canvas-mute {
+        width: 40px;
+        height: 40px;
+
+        right: 12px;
+        bottom: 12px;
+
+        font-size: 14px;
+    }
+
+    .canvas-arrow {
+        font-size: 42px;
+
+        padding: 10px;
+
+        z-index: 10;
+    }
+
+    .canvas-prev {
+        left: 0;
+    }
+
+    .canvas-next {
+        right: 0;
+    }
+
+    .canvas-info {
+        max-width: 100%;
+
+        padding: 0 15px;
+
+        margin-top: 26px;
+    }
+
+    .canvas-info h3 {
+        font-size: 18px;
+    }
+
+    .canvas-info p {
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .canvas-button {
+        min-width: 160px;
+
+        height: 44px;
+
+        margin-top: 22px;
+
+        font-size: 14px;
+    }
+
+    .canvas-pagination {
+        margin-top: 32px;
+    }
+
+
+    /* =========================
+       PROJECT SLIDER
+    ========================= */
+
+    .project-slider {
+        width: 100%;
+
+        grid-template-columns: 42px 1fr 42px;
+
+        gap: 5px;
+    }
+
+    .project-display {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 26px;
+
+        text-align: center;
+    }
+
+    .project-meta {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .project-meta-line {
+        margin:
+            14px
+            auto
+            20px;
+    }
+
+    .project-meta h3 {
+        font-size: clamp(2rem, 10vw, 3rem);
+
+        line-height: 1;
+    }
+
+    .project-category {
+        margin-top: 14px;
+    }
+
+    .project-video-card {
+        width: min(72vw, 285px);
+
+        border-radius: 22px;
+    }
+
+    .project-description-wrap {
+        max-width: 100%;
+
+        padding: 0 10px;
+
+        text-align: center;
+    }
+
+    .project-description-wrap p {
+        font-size: 0.92rem;
+
+        line-height: 1.65;
+    }
+
+    .project-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 1.1rem;
+    }
+
+
+    /* =========================
+       ABOUT US
+    ========================= */
+
+    .about-us {
+        padding: 65px 20px;
+    }
+
+    .about-us h2 {
+        margin-bottom: 35px;
+
+        font-size: clamp(2.4rem, 11vw, 3.8rem);
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image img {
+        width: 100%;
+
+        height: min(115vw, 500px);
+
+        border-radius: 18px;
+    }
+
+    .about-content p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .stat h3 {
+        font-size: clamp(4rem, 20vw, 6rem);
+    }
+
+    .stat span {
+        font-size: 0.85rem;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+        padding: 45px 20px;
+    }
+
+    .contact-section h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+
+        line-height: 1.1;
+
+        margin-top: 0;
+    }
+
+    .contact-subtitle {
+        font-size: 0.92rem;
+
+        margin-bottom: 28px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .name-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        padding: 14px;
+
+        border-radius: 12px;
+
+        font-size: 16px;
+    }
+
+    /*
+       16px prevents iPhones from zooming
+       into form fields automatically.
+    */
+
+    .submit-btn {
+        padding: 16px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* =========================
+       EXPERIENCE SLIDER
+    ========================= */
+
+    .experience-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .experience-prev {
+        left: 7px;
+    }
+
+    .experience-next {
+        right: 7px;
+    }
+
+    .experience-dots {
+        margin-top: 18px;
+        margin-bottom: 28px;
+    }
+
+
+    /* =========================
+       PERSONAL HERO
+    ========================= */
+
+    .personal-hero {
+        min-height: auto;
+
+        padding:
+            160px
+            20px
+            70px;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        text-align: center;
+    }
+
+    .personal-copy h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+
+        line-height: 0.98;
+
+        margin-bottom: 20px;
+    }
+
+    .personal-copy p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+    .personal-image {
+        width: 100%;
+    }
+
+    .personal-image img {
+        width: min(100%, 420px);
+
+        height: auto;
+
+        aspect-ratio: 4 / 5;
+
+        border-radius: 20px;
+
+        object-fit: cover;
+    }
+
+
+    /* =========================
+       JOURNEY
+    ========================= */
+
+    .journey-section {
+        padding: 70px 20px;
+    }
+
+    .journey-section h2 {
+        margin-bottom: 35px;
+
+        font-size: clamp(2.3rem, 11vw, 3.7rem);
+    }
+
+    .journey-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .journey-card {
+        padding: 28px 22px;
+
+        border-radius: 18px;
+    }
+
+    .journey-card h3 {
+        margin: 18px 0 10px;
+
+        font-size: 1.45rem;
+    }
+
+    .journey-card p {
+        font-size: 0.92rem;
+    }
+
+
+    /* =========================
+       CASE STUDIES
+    ========================= */
+
+    .case-study,
+    .case-study.reverse {
+        padding: 60px 20px;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        text-align: left;
+    }
+
+    .case-study.reverse .case-text,
+    .case-study.reverse .case-image {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .case-text h2 {
+        font-size: clamp(2.4rem, 11vw, 3.8rem);
+
+        margin-bottom: 22px;
+    }
+
+    .case-text h3 {
+        margin-top: 24px;
+
+        font-size: 1.3rem;
+    }
+
+    .case-text p,
+    .case-text li {
+        font-size: 0.93rem;
+
+        line-height: 1.7;
+    }
+
+    .case-image {
+        display: flex;
+
+        justify-content: center;
+    }
+
+    .case-image img {
+        width: 100%;
+        max-width: 390px;
+
+        height: auto;
+    }
+
+
+    /* =========================
+       PRODUCTION
+    ========================= */
+
+    .production-section {
+        padding: 70px 20px;
+    }
+
+    .production-section h2 {
+        font-size: clamp(2.4rem, 11vw, 3.8rem);
+
+        line-height: 1;
+    }
+
+    .production-section p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+    .production-tags {
+        margin-top: 30px;
+
+        gap: 8px;
+    }
+
+    .production-tags span {
+        padding: 9px 14px;
+
+        font-size: 0.78rem;
+    }
+
+
+    /* =========================
+       PRODUCTION LOGO SLIDER
+    ========================= */
+
+    .production-logo-slider {
+        margin-top: 30px;
+    }
+
+    .production-logo {
+        width: 115px;
+        height: 75px;
+
+        margin: 0 15px;
     }
 
     .production-logo img {
-        max-height: 65px;
+        max-height: 52px;
+    }
+
+    .production-logo img.logo-large {
+        transform: scale(1.3);
+    }
+
+    .production-logo img.logo-extra-large {
+        transform: scale(1.55);
     }
 
     .production-logo-track {
         animation-duration: 20s;
     }
 
+
+    /* =========================
+       AWARD SECTION
+    ========================= */
+
+    .award-section {
+        padding: 70px 20px;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .award-copy h2 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+
+        line-height: 1;
+    }
+
+    .award-copy p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+    .award-image img {
+        border-radius: 18px;
+
+        border-width: 5px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+        padding: 35px 20px;
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        justify-self: center;
+
+        text-align: center;
+    }
+
+    .footer-left h3 {
+        font-size: 1.7rem;
+    }
+
+
+    /* =========================
+       PRELOADER
+    ========================= */
+
+    .loader-circle {
+        width: 125px;
+        height: 125px;
+    }
+
+    .loader-circle span {
+        font-size: 1.5rem;
+    }
+
+    .preloader p {
+        font-size: 0.72rem;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       TOUCH DEVICES
+    ========================= */
+
+    /*
+       Hover effects can feel broken on phones.
+       Disable the unnecessary movement.
+    */
+
+    .btn:hover,
+    .submit-btn:hover,
+    .project-arrow:hover,
+    .service-card:hover {
+        transform: none;
+    }
+}
+
+
+
+/* ==========================================================
+   EXTRA SMALL MOBILE
+   iPhone SE / narrow devices
+========================================================== */
+
+@media (max-width: 430px) {
+
+    .navbar {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .navbar nav {
+        gap: 7px 12px;
+    }
+
+    .navbar nav a {
+        font-size: 0.68rem;
+    }
+
+    .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 14vw, 3.4rem);
+    }
+
+    .services,
+    .work,
+    .about-us,
+    .contact-section,
+    .journey-section,
+    .production-section,
+    .award-section,
+    .case-study,
+    .case-study.reverse {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .services-heading h2 {
+        font-size: 2.8rem;
+    }
+
+    .canvas-video-card {
+        width: 74vw;
+    }
+
+    .canvas-arrow {
+        font-size: 34px;
+    }
+
+    .project-slider {
+        grid-template-columns: 35px 1fr 35px;
+    }
+
+    .project-arrow {
+        width: 34px;
+        height: 34px;
+    }
+
+    .project-video-card {
+        width: 68vw;
+    }
+
+    .service-polaroid {
+        width: 88%;
+    }
+}
+
+
+
+/* ==========================================================
+   LARGE DESKTOP / BIG SCREEN VERSION
+   1600px+
+========================================================== */
+
+@media (min-width: 1600px) {
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+        padding:
+            20px
+            max(5vw, calc((100vw - 1700px) / 2));
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .navbar nav {
+        gap: 42px;
+    }
+
+    .navbar nav a {
+        font-size: 0.95rem;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        max-width: 1700px;
+
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .hero h1 {
+        max-width: 1200px;
+
+        font-size: clamp(6rem, 7vw, 8rem);
+    }
+
+    .hero-text {
+        max-width: 760px;
+
+        font-size: 1.25rem;
+    }
+
+    .hero-trusted {
+        width: min(1150px, 80vw);
+
+        margin-top: 55px;
+    }
+
+    .hero .production-logo {
+        width: 170px;
+        height: 65px;
+
+        margin: 0 28px;
+    }
+
+    .hero .production-logo img {
+        max-height: 46px;
+    }
+
+    .hero .production-logo img.logo-large {
+        max-height: 52px;
+    }
+
+    .hero .production-logo img.logo-extra-large {
+        max-height: 58px;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+        padding-left: max(8%, calc((100vw - 1700px) / 2));
+        padding-right: max(8%, calc((100vw - 1700px) / 2));
+    }
+
+    .intro h2 {
+        font-size: 4.8rem;
+    }
+
+    .intro p {
+        max-width: 850px;
+
+        font-size: 1.2rem;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+        padding:
+            140px
+            max(6vw, calc((100vw - 1700px) / 2))
+            160px;
+    }
+
+    .services-heading,
+    .services-grid {
+        max-width: 1650px;
+    }
+
+    .services-heading h2 {
+        font-size: 7rem;
+    }
+
+    .services-grid {
+        gap: 30px;
+    }
+
+    .service-card {
+        min-height: 520px;
+
+        padding: 42px 34px;
+    }
+
+    .service-polaroid {
+        width: 82%;
+    }
+
+    .service-polaroid img {
+        height: 215px;
+    }
+
+    .service-content h3 {
+        font-size: 28px;
+    }
+
+    .service-content p {
+        max-width: 310px;
+
+        font-size: 15px;
+    }
+
+
+    /* =========================
+       FEATURED WORK / CANVAS
+    ========================= */
+
+    .work {
+        padding:
+            90px
+            40px
+            120px;
+    }
+
+    .canvas-heading h2 {
+        font-size: 6.4rem;
+    }
+
+    .canvas-slider {
+        max-width: 1450px;
+    }
+
+    .canvas-video-card {
+        width: 380px;
+        height: 650px;
+    }
+
+    .canvas-prev {
+        left: 25%;
+    }
+
+    .canvas-next {
+        right: 25%;
+    }
+
+    .canvas-info {
+        max-width: 760px;
+    }
+
+    .canvas-info h3 {
+        font-size: 23px;
+    }
+
+    .canvas-info p {
+        max-width: 650px;
+
+        font-size: 18px;
+    }
+
+
+    /* =========================
+       PROJECT DISPLAY
+    ========================= */
+
+    .project-slider {
+        max-width: 1500px;
+
+        grid-template-columns: 75px 1fr 75px;
+
+        gap: 45px;
+    }
+
+    .project-display {
+        grid-template-columns:
+            minmax(240px, 320px)
+            380px
+            minmax(240px, 330px);
+
+        gap: 80px;
+    }
+
+    .project-video-card {
+        width: 380px;
+    }
+
+    .project-meta h3 {
+        font-size: 4.5rem;
+    }
+
+    .project-description-wrap {
+        max-width: 330px;
+    }
+
+    .project-description-wrap p {
+        font-size: 1.08rem;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-us {
+        padding:
+            100px
+            max(8%, calc((100vw - 1600px) / 2));
+    }
+
+    .about-container {
+        max-width: 1450px;
+
+        grid-template-columns: 520px 1fr;
+
+        gap: 90px;
+    }
+
+    .about-image img {
+        height: 680px;
+    }
+
+    .about-content p {
+        font-size: 1.15rem;
+    }
+
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stat h3 {
+        font-size: 8.5rem;
+    }
+
+    .stat span {
+        font-size: 1.05rem;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+        padding-left: max(5%, calc((100vw - 1700px) / 2));
+        padding-right: max(5%, calc((100vw - 1700px) / 2));
+    }
+
+    .contact-section h2 {
+        font-size: 4rem;
+    }
+
+    .contact-form {
+        max-width: 760px;
+    }
+
+    .contact-subtitle {
+        max-width: 700px;
+
+        font-size: 1.05rem;
+    }
+
+
+    /* =========================
+       PERSONAL PAGE
+    ========================= */
+
+    .personal-hero {
+        max-width: 1700px;
+
+        margin: 0 auto;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            500px;
+
+        gap: 110px;
+
+        padding:
+            170px
+            80px
+            110px;
+    }
+
+    .personal-copy h1 {
+        font-size: 6.5rem;
+    }
+
+    .personal-copy p {
+        max-width: 780px;
+
+        font-size: 1.2rem;
+    }
+
+    .personal-image img {
+        height: 650px;
+    }
+
+
+    /* =========================
+       JOURNEY
+    ========================= */
+
+    .journey-section {
+        padding:
+            130px
+            max(8%, calc((100vw - 1600px) / 2));
+    }
+
+    .journey-grid {
+        max-width: 1450px;
+
+        gap: 32px;
+    }
+
+    .journey-card {
+        padding: 44px;
+    }
+
+    .journey-card h3 {
+        font-size: 1.9rem;
+    }
+
+
+    /* =========================
+       CASE STUDIES
+    ========================= */
+
+    .case-study,
+    .case-study.reverse {
+        max-width: 1700px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding:
+            70px
+            80px;
+
+        gap: 80px;
+    }
+
+    .case-study {
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            500px;
+    }
+
+    .case-study.reverse {
+        grid-template-columns:
+            500px
+            minmax(0, 1.2fr);
+    }
+
+    .case-text h2 {
+        font-size: 5.5rem;
+    }
+
+    .case-text p,
+    .case-text li {
+        font-size: 1.08rem;
+    }
+
+    .case-image img {
+        max-width: 500px;
+    }
+
+
+    /* =========================
+       PRODUCTION
+    ========================= */
+
+    .production-section {
+        padding:
+            140px
+            max(8%, calc((100vw - 1700px) / 2));
+    }
+
+    .production-section h2 {
+        font-size: 5.5rem;
+    }
+
+    .production-section p {
+        max-width: 1000px;
+
+        font-size: 1.2rem;
+    }
+
+    .production-logo {
+        width: 220px;
+        height: 125px;
+
+        margin: 0 38px;
+    }
+
+    .production-logo img {
+        max-height: 95px;
+    }
+
+
+    /* =========================
+       AWARDS
+    ========================= */
+
+    .award-section {
+        padding:
+            140px
+            max(8%, calc((100vw - 1700px) / 2));
+
+        gap: 100px;
+    }
+
+    .award-copy h2 {
+        font-size: 6.5rem;
+    }
+
+    .award-copy p {
+        font-size: 1.2rem;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+        padding:
+            45px
+            max(8%, calc((100vw - 1700px) / 2));
+    }
+
+    .footer-left h3 {
+        font-size: 2.3rem;
+    }
+}
+
+
+
+/* ==========================================================
+   VERY LARGE / ULTRAWIDE
+   Prevents everything from becoming ridiculously stretched
+========================================================== */
+
+@media (min-width: 2000px) {
+
+    .hero,
+    .personal-hero {
+        max-width: 1900px;
+    }
+
+    .services-heading,
+    .services-grid,
+    .canvas-slider,
+    .about-container,
+    .journey-grid,
+    .project-slider {
+        max-width: 1700px;
+    }
+
+    /*
+       Do not keep increasing text forever.
+       The content gets more breathing room instead.
+    */
+
+    .hero h1 {
+        font-size: 8rem;
+    }
+
+    .services-heading h2 {
+        font-size: 7.5rem;
+    }
+
+    .canvas-heading h2 {
+        font-size: 6.8rem;
+    }
 }
