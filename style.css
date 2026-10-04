@@ -570,7 +570,7 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    --media-object-size: cover;
+    --media-object-fit: cover;
     --media-object-position: center;
 }
 
