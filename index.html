@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAPS AGENCY</title>
   <link rel="stylesheet" href="style.css" />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@mux/mux-player">
+  </script>
 </head>
 
 
@@ -209,7 +213,7 @@
 <section class="work" id="work">
 
     <div class="canvas-heading">
-        <h2>STORIES IN MOTION</h2>
+        <h2>MY WORK</h2>
     </div>
 
     <div class="canvas-slider">
@@ -232,32 +236,18 @@
             <!-- VIDEO -->
             <div class="canvas-video-card">
 
-              <video
-                  id="projectVideo"
-                  src="videos/project1.mp4"
-                  autoplay
-                  muted
-                  loop
-                  playsinline>
-              </video>
+                <mux-player
+                    id="projectVideo"
+                    playback-id="5018h2aal2VDaLAcHbvVD25hC401wZw00v1asyA5BsG9hw"
+                    preload="auto"
+                    autoplay="muted"
+                    muted
+                    loop
+                    playsinline
+                    thumbnail-time="1">
+                </mux-player>
 
-              <div class="video-controls">
-
-                  <button
-                      class="video-btn"
-                      id="playPauseBtn">
-                      ⏸
-                  </button>
-
-                  <button
-                      class="video-btn"
-                      id="muteBtn">
-                      🔇
-                  </button>
-
-              </div>
-
-          </div>
+            </div>
 
 
             <!-- NEXT -->
@@ -274,11 +264,11 @@
         <div class="canvas-info">
 
             <h3 id="projectTitle">
-                A Day That Felt Like Forever
+                Karol G Tropitour x The MAPS Agency x Phraanquicia
             </h3>
 
             <p id="projectDescription">
-                Full wedding coverage in collaboration with Social Brides Collective — the flow, the feeling, and the moments that made the day theirs.
+                Full event coverage in collaboration with Phraanquicia — the energy, the experience, and the moments that brought Karol G’s Tropitour to life.
             </p>
 
         </div>
@@ -358,104 +348,67 @@
         <h2>Our Services</h2>
     </div>
 
-    <div class="services-grid">
-
+    <div class="services-accordion">
 
         <!-- CONTENT CREATION -->
-        <article class="service-card">
+        <div class="service-item">
+            <button class="service-toggle">
+                <span>Content Creation</span>
+                <span class="service-icon">+</span>
+            </button>
 
-            <div class="service-polaroid rotate-left">
-                <img
-                    src="images/content.png"
-                    alt="Content Creation"
-                >
-
-                <span>Content / 01</span>
-            </div>
-
-            <div class="service-content">
-                <h3>Content Creation</h3>
-
+            <div class="service-description">
                 <p>
-                    Scroll-stopping visual content built around
-                    your brand, audience, and story.
+                    Scroll-stopping visual content built around your brand,
+                    audience, and story.
                 </p>
             </div>
-
-        </article>
-
+        </div>
 
         <!-- EVENT COVERAGE -->
-        <article class="service-card">
+        <div class="service-item">
+            <button class="service-toggle">
+                <span>Event Coverage</span>
+                <span class="service-icon">+</span>
+            </button>
 
-            <div class="service-polaroid rotate-right">
-                <img
-                    src="images/event.png"
-                    alt="Event Coverage"
-                >
-
-                <span>Events / 02</span>
-            </div>
-
-            <div class="service-content">
-                <h3>Event Coverage</h3>
-
+            <div class="service-description">
                 <p>
                     Real-time storytelling that captures the energy,
                     moments, and details worth remembering.
                 </p>
             </div>
-
-        </article>
-
+        </div>
 
         <!-- ASSOCIATE CONTENT -->
-        <article class="service-card">
+        <div class="service-item">
+            <button class="service-toggle">
+                <span>Associate Content</span>
+                <span class="service-icon">+</span>
+            </button>
 
-            <div class="service-polaroid rotate-left-small">
-                <img
-                    src="images/associate.png"
-                    alt="Associate Content"
-                >
-
-                <span>Creative / 03</span>
-            </div>
-
-            <div class="service-content">
-                <h3>Associate Content</h3>
-
+            <div class="service-description">
                 <p>
-                    Creative support designed to keep brands
-                    consistent, relevant, and always moving.
+                    Creative support designed to keep brands consistent,
+                    relevant, and always moving.
                 </p>
             </div>
-
-        </article>
-
+        </div>
 
         <!-- SOCIAL MEDIA -->
-        <article class="service-card">
+        <div class="service-item">
+            <button class="service-toggle">
+                <span>Social Media Management</span>
+                <span class="service-icon">+</span>
+            </button>
 
-            <div class="service-polaroid rotate-right-small">
-                <img
-                    src="images/social.png"
-                    alt="Social Media Management"
-                >
-
-                <span>Social / 04</span>
-            </div>
-
-            <div class="service-content">
-                <h3>Social Media Management</h3>
-
+            <div class="service-description">
                 <p>
-                    Strategy, publishing, community, and content
-                    working together under one direction.
+                    Strategy, publishing, community, and content working
+                    together under one direction.
                 </p>
             </div>
-
-        </article>
-
+        </div>
 
     </div>
 
@@ -946,29 +899,42 @@ closeButtons.forEach(button => {
 
 const projects = [
   {
-    video: "videos/project1.mp4",
-    title: "A Day That Felt Like Forever",
+    playbackId: "5018h2aal2VDaLAcHbvVD25hC401wZw00v1asyA5BsG9hw",
+    title: "Karol G Tropitour x The MAPS Agency x Phraanquicia",
     description:
-      "Full wedding coverage in collaboration with Social Brides Collective — the flow, the feeling, and the moments that made the day theirs."
+      "Full event coverage in collaboration with Phraanquicia — the energy, the experience, and the moments that brought Karol G’s Tropitour to life."
   },
   {
-    video: "videos/project2.mp4",
-    title: "The Energy in Motion",
+    playbackId: "j5rjfgr6uJQfN1Y02nAzfky46CSps9ERdoymOxUgzhhw",
+    title: "Karol G Tropitour x The MAPS Agency x Phraanquicia",
     description:
-      "Event coverage for WIN Fitness Wear — curated shots that captured the movement, the energy, and the full story of the day."
+      "A vibrant collaboration with Phraanquicia, capturing the bold visuals, cultural energy, and behind-the-scenes moments surrounding Karol G’s Tropitour."
   },
   {
-    video: "videos/project3.mp4",
-    title: "A Love Story in Stone",
+    playbackId: "5NxWg5nxEWs5uVp8Zlla6mQLOmWFlUJEvEsyM56ELAA",
+    title: "Bridal On Cord x The MAPS Agency ",
     description:
-      "Full wedding coverage in collaboration with Social Brides Collective — curated shots through every corner of the Ancient Spanish Monastery. "
+      "Wedding day storytelling in collaboration with Social Brides Collective — capturing the details, emotions, and moments in between. "
   },
   {
-    video: "videos/project4.mp4",
-    title: "Soccer, Amplified",
+    playbackId: "AYdGKKf2YbprBVHwRhvwJ4Oyn00j8n2W0101WpW1LRFBco",
+    title: "Bridal On Cord x The MAPS Agency ",
     description:
-      "Commercial coverage for Telemundo in collaboration with the USWNT — a campaign shoot built around the idea that soccer is better in Spanish, recapped into social-ready content."
+      "A timeless wedding celebration captured alongside Social Brides Collective — from quiet moments to unforgettable memories."
+  },
+  {
+    playbackId: "LERg5B02qxnXy8njauJga006Z14939mz3qpCNjOFWkyRU",
+    title: "Bridal On Cord x The MAPS Agency",
+    description:
+      "A bridal portrait session in collaboration with Social Brides Collective — capturing the anticipation, elegance, and beauty before the wedding day. "
+  },
+  {
+    playbackId: "pdY4nMPSbA4JsZzf1ngsz6fVKBrFc01AECiRuNmT01uAw",
+    title: "AGUA BENDITA x The MAPS Agency x Phraanquicia",
+    description:
+      "A bold visual spotlight on Agua Bendita — bringing the brand’s color, energy, and signature style to the forefront."
   }
+
 ];
 
 let currentProject = 0;
@@ -1013,7 +979,7 @@ function updateProject(direction) {
       : "slide-in-left";
 
 
-  // Slide current video + text out
+  // Slide current content out
   videoCard.classList.add(exitClass);
   canvasInfo.classList.add(exitClass);
 
@@ -1022,47 +988,47 @@ function updateProject(direction) {
 
     const project = projects[currentProject];
 
-    projectVideo.src = project.video;
+
+    // Change Mux video
+    projectVideo.playbackId = project.playbackId;
+
+
+    // Change text
     projectTitle.textContent = project.title;
     projectDescription.textContent = project.description;
 
 
     // Update dots
     canvasDots.forEach((dot, index) => {
+
       dot.classList.toggle(
         "active",
         index === currentProject
       );
+
     });
 
 
-    projectVideo.load();
-    projectVideo.play();
-
-    playPauseBtn.textContent = "⏸";
-
-    muteBtn.textContent =
-      projectVideo.muted ? "🔇" : "🔊";
-
-
-    // Remove exit position
+    // Remove exit animation
     videoCard.classList.remove(exitClass);
     canvasInfo.classList.remove(exitClass);
 
 
-    // Place new content on opposite side
+    // Put new project on opposite side
     videoCard.classList.add(enterClass);
     canvasInfo.classList.add(enterClass);
 
 
-    // Force browser to register position
+    // Force browser to recognize starting position
     void videoCard.offsetWidth;
 
 
-    // Slide new content into center
+    // Animate back into center
     requestAnimationFrame(() => {
+
       videoCard.classList.remove(enterClass);
       canvasInfo.classList.remove(enterClass);
+
     });
 
   }, 350);
@@ -1102,34 +1068,6 @@ readMoreBtn.addEventListener("click", () => {
         readMoreBtn.textContent = "Read Less";
     } else {
         readMoreBtn.textContent = "Read More";
-    }
-
-});
-
-const muteBtn = document.getElementById("muteBtn");
-const playPauseBtn = document.getElementById("playPauseBtn");
-
-muteBtn.addEventListener("click", () => {
-
-    projectVideo.muted = !projectVideo.muted;
-
-    muteBtn.textContent =
-        projectVideo.muted ? "🔇" : "🔊";
-
-});
-
-playPauseBtn.addEventListener("click", () => {
-
-    if (projectVideo.paused) {
-
-        projectVideo.play();
-        playPauseBtn.textContent = "⏸";
-
-    } else {
-
-        projectVideo.pause();
-        playPauseBtn.textContent = "▶";
-
     }
 
 });
@@ -1581,6 +1519,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+const serviceItems = document.querySelectorAll(".service-item");
+
+    serviceItems.forEach(item => {
+        const button = item.querySelector(".service-toggle");
+
+        button.addEventListener("click", () => {
+
+            // Close every other service
+            serviceItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove("active");
+                }
+            });
+
+            // Toggle clicked service
+            item.classList.toggle("active");
+        });
+    });
 
 </script>
 </html>

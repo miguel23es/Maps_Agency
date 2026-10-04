@@ -337,220 +337,122 @@ a {
   font-size: 1.1rem;
 }
 
-/* =======================
-   SERVICES
-======================= */
-.services {
-    background: #f8f8f8;
 
-    padding: 110px 8% 130px;
+/* ===============================
+   SERVICES
+================================ */
+
+.services {
+    padding: 120px 8%;
 }
 
-
-/* HEADER */
-
 .services-heading {
-    max-width: 1500px;
-    margin: 0 auto 80px;
+    margin-bottom: 60px;
 }
 
 .services-heading .eyebrow {
-    margin-bottom: 45px;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    color: #97d0bd;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
 .services-heading h2 {
     margin: 0;
-
-    font-size: clamp(4rem, 6vw, 7rem);
-    font-weight: 300;
-
-    letter-spacing: -4px;
+    font-size: clamp(3.5rem, 4vw, 4rem);
+    font-weight: 500;
     line-height: 0.95;
+    color: #000;
 }
 
 
-/* GRID */
+/* ACCORDION */
 
-.services-grid {
-    max-width: 1500px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 24px;
+.services-accordion {
+    width: 100%;
+    max-width: 1100px;
 }
 
+.service-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
 
-/* SERVICE CARD */
+.service-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
 
-.service-card {
-    position: relative;
-
-    min-height: 470px;
-
-    padding: 36px 30px;
-
-    border: 1px solid rgba(0, 0, 0, 0.12);
-
-    background: #fafafa;
+.service-toggle {
+    width: 100%;
+    padding: 28px 0;
 
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 
-    overflow: hidden;
+    background: none;
+    border: none;
 
-    transition:
-        transform 0.4s cubic-bezier(.2,.8,.2,1),
-        background 0.4s ease,
-        border-color 0.4s ease;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 200;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition: opacity 0.3s ease;
+}
+
+.service-toggle:hover {
+    opacity: 0.6;
 }
 
 
-.service-card:hover {
-    transform: translateY(-8px);
+/* PLUS ICON */
 
-    background: #fff;
+.service-icon {
+    font-size: 2rem;
+    font-weight: 300;
+    transition: transform 0.35s ease;
+}
 
-    border-color: rgba(0, 0, 0, 0.25);
+.service-item.active .service-icon {
+    transform: rotate(45deg);
 }
 
 
-/* POLAROID */
+/* DESCRIPTION */
 
-.service-polaroid {
-    width: 78%;
-
-    margin: 5px auto 40px;
-
-    padding:
-        10px
-        10px
-        30px;
-
-    background: white;
-
-    box-shadow:
-        0 14px 35px rgba(0, 0, 0, 0.09);
-
-    transition:
-        transform 0.5s cubic-bezier(.2,.8,.2,1),
-        box-shadow 0.5s ease;
-
-    transform-origin: center;
-}
-
-
-.service-polaroid img {
-    width: 100%;
-    height: 190px;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-
-.service-polaroid span {
-    display: block;
-
-    margin-top: 12px;
-
-    font-size: 9px;
-    font-weight: 500;
-
-    letter-spacing: 1.6px;
-
-    text-transform: uppercase;
-
-    color: rgba(0, 0, 0, 0.55);
-}
-
-
-/* DIFFERENT ANGLES */
-
-.rotate-left {
-    transform: rotate(-5deg);
-}
-
-.rotate-right {
-    transform: rotate(5deg);
-}
-
-.rotate-left-small {
-    transform: rotate(-3deg);
-}
-
-.rotate-right-small {
-    transform: rotate(3deg);
-}
-
-
-/* POLAROID HOVER */
-
-.service-card:hover .service-polaroid {
-    transform:
-        rotate(0deg)
-        scale(1.06);
-
-    box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.14);
-}
-
-
-/* SERVICE TEXT */
-
-.service-content h3 {
-    margin: 0;
-
-    font-size: 24px;
-    font-weight: 400;
-
-    line-height: 1.1;
-
-    letter-spacing: -0.5px;
-}
-
-
-.service-content p {
-    margin:
-        18px
-        0
-        0;
-
-    font-size: 14px;
-    line-height: 1.6;
-
-    color: #666;
-
-    max-width: 260px;
+.service-description {
+    display: grid;
+    grid-template-rows: 0fr;
 
     opacity: 0;
 
-    transform: translateY(10px);
-
     transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
+        grid-template-rows 0.4s ease,
+        opacity 0.25s ease;
 }
 
+.service-description > p {
+    overflow: hidden;
 
-/* REVEAL DESCRIPTION */
+    max-width: 650px;
 
-.service-card:hover .service-content p {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+.service-item.active .service-description {
+    grid-template-rows: 1fr;
+
     opacity: 1;
+}
 
-    transform: translateY(0);
+.service-item.active .service-description > p {
+    padding-bottom: 30px;
 }
 
 /* =========================================
@@ -574,15 +476,14 @@ a {
 
 .canvas-heading {
     text-align: center;
-    margin-bottom: 65px;
+    margin-bottom: 30px;
 }
 
 .canvas-heading h2 {
     margin: 0;
-    font-size: clamp(3.5rem, 5vw, 6rem);
+    font-size: clamp(3.5rem, 4vw, 4rem);
     font-weight: 500;
     line-height: 0.95;
-    letter-spacing: -4px;
     color: #000;
 }
 
@@ -611,7 +512,7 @@ a {
 
 /* MAIN VIDEO AREA */
 
-.canvas-main {
+.canvas-main{
     position: relative;
     display: flex;
     justify-content: center;
@@ -658,20 +559,20 @@ a {
     border-radius: 30px;
     overflow: hidden;
 
-    background: #ddd;
+    background: #000;
 
     box-shadow:
         0 14px 28px rgba(0, 0, 0, 0.10),
         0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.canvas-video-card video {
+.canvas-video-card mux-player {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    --media-object-size: cover;
+    --media-object-position: center;
 }
-
 
 /* MUTE */
 
@@ -763,7 +664,7 @@ a {
 
     color: #050505;
 
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -773,12 +674,19 @@ a {
 
     margin: 0;
 
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.55;
 
     color: #505050;
 }
+
+mux-player#projectVideo {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 
 
 /* CTA */
@@ -896,7 +804,6 @@ a {
 /* =========================================
    LEFT SIDE - PROJECT INFO
 ========================================= */
-
 .project-meta {
   align-self: center;
 }
@@ -966,13 +873,14 @@ a {
     0 25px 70px rgba(0, 0, 0, 0.15);
 }
 
-.project-video-card video {
+.project-video-card mux-player {
   display: block;
 
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  --media-object-fit: cover;
+  --media-object-position: center;
 }
 
 
@@ -2634,7 +2542,7 @@ a {
     }
 
     .services-heading h2 {
-        font-size: clamp(2.8rem, 13vw, 4.2rem);
+        font-size: clamp(2.8rem, 9vw, 3.5rem);
 
         line-height: 0.95;
 
@@ -4032,7 +3940,7 @@ a {
     }
 
     .services-heading h2 {
-        font-size: 7rem;
+       font-size: clamp(3.5rem, 4vw, 4rem);
     }
 
     .services-grid {
@@ -4076,7 +3984,7 @@ a {
     }
 
     .canvas-heading h2 {
-        font-size: 6.4rem;
+        font-size: 4.5rem;
     }
 
     .canvas-slider {
@@ -4084,8 +3992,8 @@ a {
     }
 
     .canvas-video-card {
-        width: 380px;
-        height: 650px;
+        width: 280x;
+        height: 550px;
     }
 
     .canvas-prev {
@@ -4419,7 +4327,7 @@ a {
     }
 
     .services-heading h2 {
-        font-size: 7.5rem;
+        font-size: clamp(3.5rem, 4vw, 4rem);
     }
 
     .canvas-heading h2 {
