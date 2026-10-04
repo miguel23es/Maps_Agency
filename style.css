@@ -1536,6 +1536,11 @@ a {
     cursor: not-allowed;
 }
 
+#contact {
+    scroll-margin-top: 30px;
+}
+
+
 /* =======================
    FOOTER
 ======================= */
