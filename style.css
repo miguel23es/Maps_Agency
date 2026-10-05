@@ -343,7 +343,7 @@ a {
 ================================ */
 
 .services {
-    padding: 120px 8%;
+    padding: 90px 8%;
 }
 
 .services-heading {
@@ -377,16 +377,13 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.service-item span{
-  color: #222;
-}
 
 .service-item:last-child {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .service-toggle {
-    color: #222;
+    background-color: black;
     width: 100%;
     padding: 28px 0;
 
@@ -406,9 +403,11 @@ a {
     transition: opacity 0.3s ease;
 }
 
+
 .service-toggle:hover {
     opacity: 0.6;
 }
+
 
 
 /* PLUS ICON */
@@ -1171,11 +1170,6 @@ mux-player#projectVideo {
     opacity: 0.8;
 }
 
-/* =======================
-   WORK / PORTFOLIO
-======================= */
-
-
 
 /* =======================
    CTA
@@ -1280,6 +1274,10 @@ mux-player#projectVideo {
 /* ===============================
    EXPERIENCE SLIDER
 ================================ */
+
+#experience {
+    scroll-margin-top: 50px;
+}
 
 .experience-slider-section {
     position: relative;
@@ -1725,7 +1723,7 @@ mux-player#projectVideo {
 }
 
 .journey-section {
-  padding: 100px 8%;
+  padding: 70px 8%;
   background: var(--light-bg);
   text-align: center;
 }
@@ -1824,9 +1822,13 @@ mux-player#projectVideo {
 }
 
 .production-section {
-  padding: 110px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 8%;
   background: var(--white);
   color: black;
+  height: 715px;
 }
 
 .production-section h2 {
@@ -1864,6 +1866,7 @@ mux-player#projectVideo {
   grid-template-columns: 1fr 1fr;
   gap: 70px;
   align-items: center;
+  height: 715px;
 }
 
 .award-image img {
