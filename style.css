@@ -383,7 +383,13 @@ a {
 }
 
 .service-toggle {
-    background-color: black;
+    color: #222 !important;
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    
     width: 100%;
     padding: 28px 0;
 
