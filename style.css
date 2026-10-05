@@ -1549,10 +1549,17 @@ mux-player#projectVideo {
     text-decoration: none;
 }
 
+
 .footer-instagram svg {
-    width: 18px;
-    height: 18px;
-    fill: #B3B3B3;
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+    stroke:#B3B3B3;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
     flex-shrink: 0;
 }
 
