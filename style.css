@@ -377,6 +377,10 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.service-item span{
+  color: #222;
+}
+
 .service-item:last-child {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
