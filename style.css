@@ -344,6 +344,7 @@ a {
 
 .services {
     padding: 90px 8%;
+    background-color: #f8f8f8;
 }
 
 .services-heading {
@@ -1813,12 +1814,12 @@ mux-player#projectVideo {
 }
 
 .case-study {
+  background: var(--light-bg);
   padding: 40px 8%;
   display: grid;
   grid-template-columns: 1.1fr 420px;
   gap: 40px;
   align-items: center;
-  background: transparent;
 }
 
 .case-study.reverse {
@@ -1868,11 +1869,11 @@ mux-player#projectVideo {
 }
 
 .production-section {
+  background: var(--light-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 100px 8%;
-  background: var(--white);
   color: black;
   height: 715px;
 }
