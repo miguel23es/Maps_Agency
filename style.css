@@ -1521,6 +1521,7 @@ mux-player#projectVideo {
 
 .footer-right p {
   color: rgba(255,255,255,.7);
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
